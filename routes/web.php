@@ -24,8 +24,13 @@ Auth::routes();
 Route::get('/', 'IndexController@index')->name('index');
 
 
-Route::group(['middleware'=>['auth','admin']],function(){
+
 
 Route::get('/admin', 'AdminController@admin')->name('admin');
+Route::get('/users', 'AdminController@users')->name('users'); 
+Route::get('/edit-user/{id}', 'AdminController@edit')->name('user.edit');
+Route::post('/edit-update/{id}', 'AdminController@update')->name('user.update');                                                         
+Route::delete('/delete{id}', 'AdminController@delete')->name('delete');
 
-});
+
+
