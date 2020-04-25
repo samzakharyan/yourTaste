@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Exception;
+use Hash;
 class AdminController extends Controller
 {
 	public function __construct()
@@ -11,14 +13,10 @@ class AdminController extends Controller
 		$this->middleware('auth'); 
 	}
 
-
-
-
 	public function admin()
 	{
 		return view('admin.admin');   
 	}
-
 
 	public function users()
 	{
@@ -27,27 +25,71 @@ class AdminController extends Controller
 		return view('admin.users')->with('users', $users);   
 	}
 
+	public function useredit(Request $request, $id){ 
+		// $int = (int)$id;  
+		// if (is_int($int)) {                            	
+		$users=User::findOrFail($id);
+		return view('admin.user-edit')->with('users', $users);                          
 
+	}
 
+	public function  userupdate(Request $request, $id){
+		$validator=$request->validate([
+			'name'  => 'required|min:4',
+			'email' => 'required|email',
+		]);
 
-	public function edit(Request $request, $id)
-	{
-		if (is_int($id) && $id < 0) {
-			$user=User::findOrFail($id);	
-			return view('admin.edit-user')->with('users', $user);	
-		} else {
-			return abort(404);		   
+		try{
+			$users=User::find($id);
+			$users->name=$request->input('name');
+			$users->email=$request->input('email');
+			$users->update();
+			return redirect('/users');
 		}
+
+		catch(Exception $e){
+			return  $e->getMessage();
+
+		}
+		
 	}
 
+	public function useradd()
+	{
+		return view('admin.user-add');   
+	}
 
-	public function delete(Request $request, $id)
-	{      
+	public function adduser(Request $request)
+	{   $validator=$request->validate([
+		'name'  => 'required|min:4',
+		'email' => 'required|email',
+		'password' => 'required|min:6|max:20',  
+	]);
 
-		$user=User::findOrFail($id);
-		$user->delete();
-		return redirect('/users')->with('status', 'Your Data Is Deleted');
+
+	try{
+		$users= new User;
+		$users->name=$request->input('name');
+		$users->email=$request->input('email');
+		$users->password=$request->input('password');
+		$users->password = Hash::make('password');
+		$users->save();
+		return redirect('/users');
 
 	}
+
+	catch(Exception $e){
+		return  $e->getMessage();
+
+	}
+}
+
+
+public function userdelete($id)
+{ 
+	$user=User::findOrFail($id);
+	$user->delete();
+	return redirect('/users');
+}
 
 }
