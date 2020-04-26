@@ -3,13 +3,34 @@
 
 <div id="layoutSidenav_content">
 
+ <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="deleteFormID">
 
-
+        <div class="modal-body"> 
+          {{csrf_field()}}
+          {{method_field('delete')}}
+          <input type="hidden" name="id" id="delete_id">
+          Are you sure!!  You want to Delete this User?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Yes. Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <main>
     <div class="container-fluid">
-
       <div class="card mb-4" style="margin-top: 60px">
         <div class="card-header"><i class="fas fa-table mr-1"></i>Users Tables</div>
         <a href="{{url('user-add')}}" class="btn btn-primary">Add User</a>   
@@ -37,43 +58,17 @@
                   </td>
                   <td>
                    <!-- <button class="deleteUser  btn btn-danger" data-id="{{ $user->id }}" data-token="{{ csrf_token() }}" >Delete </button> -->
-                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                   <button type="button"  class="deletebtn btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                      Delete
                    </button>
-                   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                         Are you sure?  You delete this user
-                       </div>
-                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <form action="{{url('user-delete', ['id' => $user->id])}}" method="post">
-                         {{csrf_field()}}
-                         {{method_field('DELETE')}}
-                         <button type="submit" class="btn btn-danger">  Yes.Delete</button>
-                       </form>   
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-
-
-             </td>
-           </tr>
-         </tbody> 
-         @endforeach
-       </table>
+                 </td>
+               </tr>
+             </tbody> 
+             @endforeach
+           </table>
+         </div>
+       </div>
      </div>
    </div>
- </div>
-</div>
-</main>
-@endsection
+ </main>
+ @endsection

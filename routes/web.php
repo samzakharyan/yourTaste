@@ -14,5 +14,4 @@ Route::get('/user-add','AdminController@useradd')->name('user-add');
 Route::post('add-user', 'AdminController@adduser')->name('add-user');
 
 //Route::post('/user-delete/{id}', 'AdminController@userdelete')->name('user-delete');
-
 Route::delete('/user-delete/{id}', 'AdminController@userdelete')->name('user-delete');

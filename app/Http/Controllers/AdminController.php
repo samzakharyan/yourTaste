@@ -96,7 +96,8 @@ public function userdelete(Request $request, $id)
 {      
 	$user=User::findOrFail($id);
 	$user->delete();
-	return redirect('/users');
+	return $user;
+	
 
 }
 
