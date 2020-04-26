@@ -5,7 +5,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
 	public function __construct()
@@ -59,20 +59,19 @@ class AdminController extends Controller
 		return view('admin.user-add');   
 	}
 
+
 	public function adduser(Request $request)
-	{   $validator=$request->validate([
+	{  	$validator=$request->validate([
 		'name'  => 'required|min:4',
 		'email' => 'required|email',
 		'password' => 'required|min:6|max:20',  
 	]);
 
-
 	try{
 		$users= new User;
 		$users->name=$request->input('name');
 		$users->email=$request->input('email');
-		$users->password=$request->input('password');
-		$users->password = Hash::make('password');
+		$users->password=Hash::make($request->input('password'));
 		$users->save();
 		return redirect('/users');
 
@@ -82,14 +81,28 @@ class AdminController extends Controller
 		return  $e->getMessage();
 
 	}
+	
 }
 
+// public function userdelete($id)
+// { 
+// 	$user=User::findOrFail($id);
+// 	$user->delete();
+// 	return redirect('/users');
+// }
 
-public function userdelete($id)
-{ 
+
+public function userdelete(Request $request, $id)
+{      
 	$user=User::findOrFail($id);
 	$user->delete();
 	return redirect('/users');
+
 }
+
+
+
+
+
 
 }

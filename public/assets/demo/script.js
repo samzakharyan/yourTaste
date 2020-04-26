@@ -1,20 +1,21 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
-	$(".deleteUser").click(function(){
-		var id = $(this).data("id");
-		var token = $(this).data("token");
-		$('.delete').remove()
-		$.ajax(
-		{
-			url: "user-delete/"+id,
-			type: 'post',
-			data: {"id": id,  "_token": token},
-			success: function (r)
-			{
-				//location.replace('/users')
-			}
-		});
-	});
+// 	$(".deleteUser").click(function(){
+// 		let id = $(this).data("id");
+// 		let token = $(this).data("token");
+		
+// 		$.ajax(
+// 		{
+// 			url: "user-delete/"+id,
+// 			type: 'post',
+// 			data: {"id": id,  "_token": token},
+// 			success: function (r)
+// 			{
+// 				console.log(r)
+// 				//location.replace('/users')
+// 			}
+// 		});
+// 	});
 
 
-})
+// })
