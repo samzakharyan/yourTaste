@@ -13,6 +13,8 @@ class AdminController extends Controller
 		$this->middleware('auth'); 
 	}
 
+
+
 	public function admin()
 	{
 		return view('admin.admin');   
@@ -44,7 +46,7 @@ class AdminController extends Controller
 			$users->name=$request->input('name');
 			$users->email=$request->input('email');
 			$users->update();
-			return redirect('/users');
+			return redirect('admin/users');
 		}
 
 		catch(Exception $e){
@@ -63,7 +65,7 @@ class AdminController extends Controller
 	public function adduser(Request $request)
 	{  	$validator=$request->validate([
 		'name'  => 'required|min:4',
-		'email' => 'required|email',
+		'email' => 'required|email|unique:users,email',
 		'password' => 'required|min:6|max:20',  
 	]);
 
@@ -73,7 +75,7 @@ class AdminController extends Controller
 		$users->email=$request->input('email');
 		$users->password=Hash::make($request->input('password'));
 		$users->save();
-		return redirect('/users');
+		return redirect('admin/users');
 
 	}
 
@@ -83,13 +85,6 @@ class AdminController extends Controller
 	}
 	
 }
-
-// public function userdelete($id)
-// { 
-// 	$user=User::findOrFail($id);
-// 	$user->delete();
-// 	return redirect('/users');
-// }
 
 
 public function userdelete(Request $request, $id)

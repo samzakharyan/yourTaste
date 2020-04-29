@@ -8,7 +8,7 @@
                 <div class="card-header"><i class="fas fa-table mr-1"></i>Users Update</div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <form action="{{url('user-update', ['id' => $users->id])}}" method="POST">
+                        <form action="{{url('admin/user-update', ['id' => $users->id])}}" method="POST">
                             {{csrf_field()}}
                             {{method_field('PUT')}}
                             @error('name')
@@ -20,7 +20,7 @@
                             @enderror
                             Email:<input type="text"  name="email" value="{{$users->email}}" class="form-control"><br>
                             <button type="submit" class="btn btn-success">Update</button>    
-                            <a href="/users" type="submit" class="btn btn-danger">Cancle</a> 
+                            <a href="{{url('admin/users')}}" type="submit" class="btn btn-danger">Cancle</a> 
                         </form>  
                     </div>
                 </div>
