@@ -1,34 +1,35 @@
 $(document).ready(function(){
 
-	$('.deletebtn').on('click', function(){
-		$tr=$(this).closest('tr');
-		var data =$tr.children('td').map(function(){
-			return $(this).text();
-		}).get();
-		console.log(data);
-		$('#delete_id').val(data[0]);
-	})
-
-	$('#deleteFormID').on('submit', function(e){
-		e.preventDefault();
-		var id=$('#delete_id').val()
-
-		$.ajax(
-		{
-			url: "user-delete/"+id,
-			type: 'DELETE',
-			data:  $('#deleteFormID').serialize(),
-			success: function (r)
-			{   console.log(r)
-				
-				alert("User Delete")
-				location.reload();
-				
+	$('.deletebtn').click(function(){
+	var id = $(this).closest('tr').children('td').first().text();
+	console.log(id);
+		
+		$.ajax({
+			url:"delete/"+id,
+			method:'get' ,
+			data:{id:'id'},  
+			success: function (result)
+			{  
+				$('.result').html(result)	
 			},
-			error:function(error){
-				console.log(error);
-			}
-		});
-	})
+		});		
+		
+		$(document).on('click', '.delete', function(event){
+			//let a = $('tbody').find('tr').children('td').eq();
+			//console.log(a);
+			$.ajax({
+				url:"user-delete/"+id,
+				method:'get' ,
+				data:{id:'id'},  
+				success: function (result)
+				{  
 
-})
+				// location?.reload()
+				},
+			});		
+		})
+
+
+	})	
+
+});

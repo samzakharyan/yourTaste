@@ -1,4 +1,8 @@
 @extends("leyouts.leyout")
+@section("title")
+  Users Add
+@endsection
+
 @section("content")
 
 <div id="layoutSidenav_content">

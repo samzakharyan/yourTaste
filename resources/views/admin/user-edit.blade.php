@@ -1,4 +1,7 @@
 @extends("leyouts.leyout")
+@section("title")
+  Users Edit
+@endsection
 @section("content")
 
 <div id="layoutSidenav_content">
@@ -19,7 +22,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             Email:<input type="text"  name="email" value="{{$users->email}}" class="form-control"><br>
-                            <button type="submit" class="btn btn-success">Update</button>    
+                            <button type="submit" class="update-user btn btn-success">Update</button>    
                             <a href="{{url('admin/users')}}" type="submit" class="btn btn-danger">Cancle</a> 
                         </form>  
                     </div>

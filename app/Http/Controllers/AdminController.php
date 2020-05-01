@@ -5,6 +5,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
+use Session;
 use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
@@ -31,6 +32,7 @@ class AdminController extends Controller
 		// $int = (int)$id;  
 		// if (is_int($int)) {                            	
 		$users=User::findOrFail($id);
+		
 		return view('admin.user-edit')->with('users', $users);                          
 
 	}
@@ -46,7 +48,8 @@ class AdminController extends Controller
 			$users->name=$request->input('name');
 			$users->email=$request->input('email');
 			$users->update();
-			return redirect('admin/users');
+			Session::flash('statuscode','success');
+			return redirect('admin/users')->with('status','User successfully edited');
 		}
 
 		catch(Exception $e){
@@ -75,7 +78,8 @@ class AdminController extends Controller
 		$users->email=$request->input('email');
 		$users->password=Hash::make($request->input('password'));
 		$users->save();
-		return redirect('admin/users');
+		Session::flash('statuscode','success');
+		return redirect('admin/users')->with('status','User successfully Add');
 
 	}
 
@@ -87,15 +91,28 @@ class AdminController extends Controller
 }
 
 
-public function userdelete(Request $request, $id)
-{      
-	$user=User::findOrFail($id);
-	$user->delete();
-	return $user;
-	
+public function  delete(Request $request, $id)
+{    
+	$user=User::find($id);
+	if (Auth::user()->id == $id){
+		print  'You are an administrator.Are you sure!!You want to Delete?';
 
+	}
+	else{
+		print  'Are you sure!!You want to Delete this User?';
+	}              
 }
 
+
+
+public function  userdelete(Request $request, $id)
+{           
+	$user=User::find($id);
+	$user->delete();
+	return $user;
+
+	
+}
 
 
 
