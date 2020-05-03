@@ -14,7 +14,6 @@
                     <div class="table-responsive">
                         <form action="{{url('admin/add-user')}}" method="post">
                             {{csrf_field()}}
-                            
                             @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

@@ -18,8 +18,8 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::post('add-user', 'AdminController@adduser')->name('admin.user');
 
 
-	Route::get('delete/{id}',  'AdminController@delete')->name('admin.delete');	
-	Route::get('user-delete/{id}',  'AdminController@userdelete')->name('admin.delete');
+	Route::post('user/delete/{id}',  'AdminController@delete')->name('admin.delete');	
+	// Route::get('user-delete/{id}',  'AdminController@userdelete')->name('admin.delete');
 
 });
 

@@ -35,7 +35,7 @@ Users
                   </td>
                   <td>
 
-                    <button type="button"  class="deletebtn btn btn-danger" id="{{ $user->id }}" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button"  class="deletebtn btn btn-danger" id="{{ $user->id }}" data-toggle="modal" data-target="#exampleModal" data-url="{{route('admin.delete', ['id' => $user->id])}}">
                      Delete
                    </button>
 
@@ -50,7 +50,7 @@ Users
                    @endsection
 
                    @section('modal-footer')
-                   <button type="submit" class="delete btn btn-danger" id="{{ $user->id }}">Yes. Delete</button>  
+                   <button type="submit" class="delete-user btn btn-danger" id="{{ $user->id }}">Yes. Delete</button>  
                    @endsection
 
                    <!-- END DELLETE MODAL -->
