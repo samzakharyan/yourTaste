@@ -1,6 +1,6 @@
 @extends("leyouts.leyout")
 @section("title")
-  Admin Panel
+Admin Panel
 @endsection
 
 @section("content")
@@ -97,7 +97,7 @@
                                     <td>2011/04/25</td>
                                     <td>$320,800</td>
                                 </tr>
-                   
+                                
                             </tbody>
                         </table>
                     </div>

@@ -1,10 +1,7 @@
 @extends("leyouts.leyout")
-
-
 @section("title")
 Users
 @endsection
-
 @section("content")
 <div id="layoutSidenav_content">
   <main>
@@ -43,18 +40,29 @@ Users
                    @extends('leyouts.modal')
 
                    @section('modal-title') 
-                     Delete   User  
+                   Delete   User  
                    @endsection
                    @section('modal-content') 
                    <p class="result"></p>
                    @endsection
 
                    @section('modal-footer')
-                   <button type="submit" class="delete-user btn btn-danger" id="{{ $user->id }}">Yes. Delete</button>  
+                   <button type="submit"  class="delete-user btn btn-danger" data-toggle="modal" data-target="#exampleModall" id="{{ $user->id }}">
+                     Yes. Delete
+                   </button> 
                    @endsection
 
                    <!-- END DELLETE MODAL -->
 
+                   <!-- DELETE MODAL SUCCESS -->  
+                   @extends('leyouts.modal')
+                   @section('modall-title') 
+                   User Deleted 
+                   @endsection
+                   @section('modall-content') 
+                   <p class="result-success"></p>
+                   @endsection
+                   <!-- END DELLETE MODAL SUCCESS -->
                  </td>
                </tr>
              </tbody> 
@@ -65,4 +73,7 @@ Users
      </div>
    </div>
  </main>
+
+
+ 
  @endsection

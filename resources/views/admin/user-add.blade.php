@@ -1,6 +1,6 @@
 @extends("leyouts.leyout")
 @section("title")
-  Users Add
+Users Add
 @endsection
 
 @section("content")

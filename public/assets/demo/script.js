@@ -1,15 +1,14 @@
 $(document).ready(function(){
 	
 	$.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
 	
 	$('.deletebtn').click(function(){
 		var id = $(this).closest('tr').children('td').first().text();	
 		var url = $(this).data('url');
-	
 		$.ajax({
 			url: url,
 			method: 'post',
@@ -17,6 +16,7 @@ $(document).ready(function(){
 			success: function (response)
 			{
 				$('.result').text(response.msg);
+
 				$('.delete-user').on('click', function () {
 					$.ajax({
 						url: url,
@@ -25,11 +25,12 @@ $(document).ready(function(){
 						success: function (response)
 						{
 							if (response.fail) {
-								alert(response.msg);
+								$('.result-success').text(response.msg);
+								
 							} else {
-								alert(response.msg);
-								location.reload();
-							}
+								$('.result-success').text(response.msg);
+								setTimeout(function(){  location.reload();},3000)
+							}	
 						}
 					});	
 				});	

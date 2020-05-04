@@ -1,9 +1,8 @@
 @extends("leyouts.leyout")
 @section("title")
-  Users Edit
+Users Edit
 @endsection
 @section("content")
-
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
