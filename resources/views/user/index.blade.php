@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,19 +17,19 @@ http://www.templatemo.com/tm-515-eatery
      <meta name="author" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="stylesheet" href="{{asset('index/css/bootstrap.min.css') }}">
-     <link rel="stylesheet" href="{{asset('index/css/font-awesome.min.css') }}">
-     <link rel="stylesheet" href="{{asset('index/css/animate.css') }}">
-     <link rel="stylesheet" href="{{asset('index/css/owl.carousel.css') }}">
-     <link rel="stylesheet" href="{{asset('index/css/owl.theme.default.min.css') }}">
-     <link rel="stylesheet" href="{{asset('index/css/magnific-popup.css') }}">
+     <link rel="stylesheet" href="{{asset('user/css/bootstrap.min.css')}}">
+     <link rel="stylesheet" href="{{asset('user/css/font-awesome.min.css')}}">
+     <link rel="stylesheet" href="{{asset('user/css/animate.css')}}">
+     <link rel="stylesheet" href="{{asset('user/css/owl.carousel.css')}}">
+     <link rel="stylesheet" href="{{asset('user/css/owl.theme.default.min.css')}}">
+     <link rel="stylesheet" href="{{asset('user/css/magnific-popup.css')}}">
 
      <!-- MAIN CSS -->
-     <link rel="stylesheet" href="{{asset('index/css/templatemo-style.css') }}">
+     <link rel="stylesheet" href="{{asset('user/css/templatemo-style.css')}}">
 
 </head>
 <body>
-    
+  
      <!-- PRE LOADER -->
      <section class="preloader">
           <div class="spinner">
@@ -143,7 +142,7 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-6 col-sm-12">
                          <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
-                              <img src="{{asset('index/images/about-image.jpg')}}" class="img-responsive" alt="">
+                              <img src="user/images/about-image.jpg" class="img-responsive" alt="">
                          </div>
                     </div>
                     
@@ -166,7 +165,7 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                              <img src="{{asset('index/images/team-image1.jpg')}}" class="img-responsive" alt="">
+                              <img src="user/images/team-image1.jpg" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
                                              <h4>Duis vel lacus id magna mattis vehicula</h4> 
@@ -185,7 +184,7 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
-                              <img src="{{asset('index/images/team-image2.jpg')}}" class="img-responsive" alt="">
+                              <img src="user/images/team-image2.jpg" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
                                              <h4>Cras suscipit neque quis odio feugiat</h4>
@@ -204,7 +203,7 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
-                              <img src="{{asset('index/images/team-image3.jpg')}}" class="img-responsive" alt="">
+                              <img src="user/images/team-image3.jpg" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
                                              <h4>Etiam auctor enim tristique faucibus</h4>
@@ -241,8 +240,8 @@ http://www.templatemo.com/tm-515-eatery
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="{{asset('index/images/menu-image1.jpg')}}" class="image-popup" title="American Breakfast">
-                                   <img src="{{asset('index/images/menu-image1.jpg')}}" class="img-responsive" alt="">
+                              <a href="user/images/menu-image1.jpg" class="image-popup" title="American Breakfast">
+                                   <img src="user/images/menu-image1.jpg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
@@ -260,8 +259,8 @@ http://www.templatemo.com/tm-515-eatery
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="{{asset('index/images/menu-image2.jpg')}}" class="image-popup" title="Self-made Salad">
-                                   <img src="{{asset('index/images/menu-image2.jpg')}}" class="img-responsive" alt="">
+                              <a href="user/images/menu-image2.jpg" class="image-popup" title="Self-made Salad">
+                                   <img src="user/images/menu-image2.jpg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
@@ -279,8 +278,8 @@ http://www.templatemo.com/tm-515-eatery
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="{{asset('index/images/menu-image3.jpg')}}" class="image-popup" title="Chinese Noodle">
-                                   <img src="{{asset('index/images/menu-image3.jpg')}}" class="img-responsive" alt="">
+                              <a href="user/images/menu-image3.jpg" class="image-popup" title="Chinese Noodle">
+                                   <img src="user/images/menu-image3.jpg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
@@ -298,8 +297,8 @@ http://www.templatemo.com/tm-515-eatery
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="{{asset('index/images/menu-image4.jpg')}}" class="image-popup" title="Rice Soup">
-                                   <img src="{{asset('index/images/menu-image4.jpg')}}" class="img-responsive" alt="">
+                              <a href="user/images/menu-image4.jpg" class="image-popup" title="Rice Soup">
+                                   <img src="user/images/menu-image4.jpg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
@@ -317,8 +316,8 @@ http://www.templatemo.com/tm-515-eatery
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="{{asset('index/images/menu-image5.jpg')}}" class="image-popup" title="Project title">
-                                   <img src="{{asset('index/images/menu-image5.jpg')}}" class="img-responsive" alt="">
+                              <a href="user/images/menu-image5.jpg" class="image-popup" title="Project title">
+                                   <img src="user/images/menu-image5.jpg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
@@ -336,8 +335,8 @@ http://www.templatemo.com/tm-515-eatery
                     <div class="col-md-4 col-sm-6">
                          <!-- MENU THUMB -->
                          <div class="menu-thumb">
-                              <a href="{{asset('index/images/menu-image6.jpg')}}" class="image-popup" title="Project title">
-                                   <img src="{{asset('index/images/menu-image6.jpg')}}" class="img-responsive" alt="">
+                              <a href="user/images/menu-image6.jpg" class="image-popup" title="Project title">
+                                   <img src="user/images/menu-image6.jpg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
@@ -408,12 +407,12 @@ http://www.templatemo.com/tm-515-eatery
      <section id="contact" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
-	<!-- How to change your own map point
+     <!-- How to change your own map point
             1. Go to Google Maps
             2. Click on your location point
             3. Click "Share" and choose "Embed map" tab
             4. Copy only URL and paste it within the src="" field below
-	-->
+     -->
                     <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.4s">
                          <div id="google-map">
                               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" allowfullscreen></iframe>
@@ -529,15 +528,14 @@ http://www.templatemo.com/tm-515-eatery
 
 
      <!-- SCRIPTS -->
-     <script src="{{ asset('index/js/jquery.js') }}"></script>
-     <script src="{{ asset('index/js/bootstrap.min.js') }}"></script>
-     <script src="{{ asset('index/js/jquery.stellar.min.js') }}"></script>
-     <script src="{{ asset('index/js/wow.min.js') }}"></script>
-     <script src="{{ asset('index/js/owl.carousel.min.js') }}"></script>
-     <script src="{{ asset('index/js/jquery.magnific-popup.min.js') }}"></script>
-     <script src="{{ asset('index/js/smoothscroll.js') }}"></script>
-     <script src="{{ asset('index/js/custom.js') }}"></script>
+     <script src="{{asset('user/js/jquery.js')}}"></script>
+     <script src="{{asset('user/js/bootstrap.min.js')}}"></script>
+     <script src="{{asset('user/js/jquery.stellar.min.js')}}"></script>
+     <script src="{{asset('user/js/wow.min.js')}}"></script>
+     <script src="{{asset('user/js/owl.carousel.min.js')}}"></script>
+     <script src="{{asset('user/js/jquery.magnific-popup.min.js')}}"></script>
+     <script src="{{asset('user/js/smoothscroll.js')}}"></script>
+     <script src="{{asset('user/js/custom.js')}}"></script>
 
 </body>
-=======
 </html>

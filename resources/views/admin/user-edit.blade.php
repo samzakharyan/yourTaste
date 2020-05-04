@@ -5,6 +5,11 @@ Users Edit
 @section("content")
 <div id="layoutSidenav_content">
     <main>
+       <div class="container-fluid">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol></div>
         <div class="container-fluid">
             <div class="card mb-4" style="margin-top: 60px">
                 <div class="card-header"><i class="fas fa-table mr-1"></i>Users Update</div>

@@ -9,7 +9,7 @@ Route::get('/', 'IndexController@index')->name('index');
 
 
 Route::group(['prefix' => 'admin'], function() {
-	Route::get('/', 'AdminController@admin')->name('admin.admin');
+	Route::get('admin', 'AdminController@admin')->name('admin.admin');
 	Route::get('users', 'AdminController@users')->name('admin.users'); 
 	Route::get('user-edit/{id}','AdminController@useredit')->name('admin.edit');
 	Route::put('user-update/{id}','AdminController@userupdate')->name('admin.update'); 

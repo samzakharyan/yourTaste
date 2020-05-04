@@ -16,7 +16,6 @@ $(document).ready(function(){
 			success: function (response)
 			{
 				$('.result').text(response.msg);
-
 				$('.delete-user').on('click', function () {
 					$.ajax({
 						url: url,
@@ -26,10 +25,10 @@ $(document).ready(function(){
 						{
 							if (response.fail) {
 								$('.result-success').text(response.msg);
-								
+
 							} else {
 								$('.result-success').text(response.msg);
-								setTimeout(function(){  location.reload();},3000)
+								setTimeout(function(){  location.reload();},2000)
 							}	
 						}
 					});	
