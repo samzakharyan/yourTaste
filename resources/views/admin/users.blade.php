@@ -1,6 +1,6 @@
 @extends("leyouts.leyout")
 @section("title")
-Users
+Users 
 @endsection
 @section("content")
 <div id="layoutSidenav_content">
@@ -78,7 +78,4 @@ Users
      </div>
    </div>
  </main>
-
-
-
  @endsection

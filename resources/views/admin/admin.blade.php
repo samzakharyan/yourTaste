@@ -2,7 +2,6 @@
 @section("title")
 Admin Panel
 @endsection
-
 @section("content")
 <div id="layoutSidenav_content">
     <main>

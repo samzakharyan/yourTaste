@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>@yield("title")</title>
 </head>
 <body>  
 <!-- <button type="button"  class="deletebtn btn btn-danger" data-toggle="modal" data-target="#exampleModal">

@@ -15,7 +15,8 @@ class AdminController extends Controller {
 	}
 
 	public function admin() {
-		return view('admin.admin');   
+		return view('admin.admin');  
+		
 	}
 
 	public function users()
@@ -87,7 +88,7 @@ class AdminController extends Controller {
 			}
 		} else if ($request->reason == 'delete') {
 			$delete = User::where(['id' => $id])->delete();
-            
+			
 			return $delete ? response()->json(['fail' => false, 'msg' => 'You are successfully deleted.']) : 
 			response()->json(['fail' => true, 'msg' => 'Something went wrong. Please try again.']);
 			
