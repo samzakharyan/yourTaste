@@ -1,81 +1,54 @@
-@extends("leyouts.leyout")
+@extends("layouts.layout")
 @section("title")
 Users 
 @endsection
 @section("content")
-<div id="layoutSidenav_content">
-  <main>
-   <div class="container-fluid">
-    <h1 class="mt-4">Dashboard</h1>
-    <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Dashboard</li>
-    </ol></div>
-    <div class="container-fluid">
-      <div class="card mb-4" style="margin-top: 60px">
-        <div class="card-header"><i class="fas fa-table mr-1"></i>Users</div> 
-        <div class="card-body">  
-          <a href="{{url('admin/user-add')}}" style="margin-top: 10px; margin-bottom: 10px;"  class="btn btn-primary">Add User</a> 
-          <div class="table-responsive">
-            <table class="table table-bordered"  width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              @foreach($users as $user)
-              <tbody >
-                <tr>
-                  <td>{{$user->id}}</td>
-                  <td>{{$user->name}}</td>
-                  <td>{{$user->email}}</td>
-                  <td>
-                    <a href="{{url('admin/user-edit', ['id' => $user->id])}}" class="btn btn-success">Edit</a>   
-                  </td>
-                  <td>
+@section("title-name")
+Users 
+@endsection
+@section("name")
+Users Panel
+@endsection
+<main>
+  <div class="container-fluid">
+    <div class="card mb-4" style="margin-top: 60px">
+      <div class="card-header"><i class="fas fa-table mr-1"></i>Users</div> 
+      <div class="card-body">  
+        <a href="{{url('admin/user-add')}}" style="margin-top: 10px; margin-bottom: 10px;"  class="btn btn-primary">Add User</a> 
+        <div class="table-responsive">
+          <table class="table table-bordered"  width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            @foreach($users as $user)
+            <tbody >
+              <tr>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>
+                  <a href="{{url('admin/user-edit', ['id' => $user->id])}}" class="btn btn-success">Edit</a>   
+                </td>
+                <td>
 
-                    <button type="button"  class="deletebtn btn btn-danger" id="{{ $user->id }}" data-toggle="modal" data-target="#exampleModal" data-url="{{route('admin.delete', ['id' => $user->id])}}">
-                     Delete
-                   </button>
-
-                   <!-- DELETE MODAL -->           
-                   @extends('leyouts.modal')
-
-                   @section('modal-title') 
-                   Delete   User  
-                   @endsection
-                   @section('modal-content') 
-                   <p class="result"></p>
-                   @endsection
-
-                   @section('modal-footer')
-                   <button type="submit"  class="delete-user btn btn-danger " data-toggle="modal" data-target="#exampleModall" id="{{ $user->id }}"   data-dismiss="modal" aria-label="Close">
-                     Yes. Delete
-                   </button> 
-                   @endsection
-
-                   <!-- END DELLETE MODAL -->
-
-                   <!-- DELETE MODAL SUCCESS -->  
-                   @extends('leyouts.modal')
-                   @section('modall-title') 
-                   User Deleted 
-                   @endsection
-                   @section('modall-content') 
-                   <p class="result-success"></p>
-                   @endsection
-                   <!-- END DELLETE MODAL SUCCESS -->
-                 </td>
-               </tr>
-             </tbody> 
-             @endforeach
-           </table>
-         </div>
+                  <button type="button"  class="deletebtn btn btn-danger" id="{{ $user->id }}" data-toggle="modal" data-target="#exampleModal" data-url="{{route('admin.delete', ['id' => $user->id])}}">
+                   Delete
+                 </button>
+                 
+               </td>
+             </tr>
+           </tbody> 
+           @endforeach
+         </table>
        </div>
      </div>
    </div>
- </main>
- @endsection
+ </div>
+</main>
+@endsection
