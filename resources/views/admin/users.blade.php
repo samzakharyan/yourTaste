@@ -36,11 +36,9 @@ Users Panel
                   <a href="{{url('admin/user-edit', ['id' => $user->id])}}" class="btn btn-success">Edit</a>   
                 </td>
                 <td>
-
-                  <button type="button"  class="deletebtn btn btn-danger" id="{{ $user->id }}" data-toggle="modal" data-target="#exampleModal" data-url="{{route('admin.delete', ['id' => $user->id])}}">
+                  <button type="button"  class="deletebtn btn btn-danger" id="{{ $user->id }}" data-toggle="modal" data-target="#Modal" data-url="{{route('admin.delete', ['id' => $user->id])}}">
                    Delete
                  </button>
-                 
                </td>
              </tr>
            </tbody> 

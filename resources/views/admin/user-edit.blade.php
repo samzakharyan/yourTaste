@@ -9,8 +9,7 @@ Users
 @section("name")
 Users Edit
 @endsection
-<main>
-  
+<main> 
     <div class="container-fluid">
         <div class="card mb-4" style="margin-top: 60px">
             <div class="card-header"><i class="fas fa-table mr-1"></i>Users Update</div>
