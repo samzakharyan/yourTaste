@@ -49,4 +49,43 @@ $(document).ready(function(){
 			
 		});
 	});
+
+// Image Upload
+$("#photo").change(function(event) {  
+	readURL(this);    
+});
+function readURL(input) {    
+	if (input.files && input.files[0]) {   
+		var reader = new FileReader();
+		var filename = $("#photo").val();
+		filename = filename.substring(filename.lastIndexOf('\\')+1);
+		reader.onload = function(e) {     
+			$('#preview').attr('src', e.target.result);
+			$('#preview').hide();
+			$('#preview').fadeIn(500);               
+		}
+		reader.readAsDataURL(input.files[0]);    
+	} 
+}
+
+
+
+$('.div-text').click(function(){
+	$('.name').show();
+	$('.image-name').hide();
+	$('#preview').hide();  
+	$('.image').hide();
+	$('.div-text').css({background:'#65C5B4'});
+	$('.div-image').css({background:'#89898C'});
+})
+
+$('.div-image').click(function(){
+	$('.name').hide();
+	$('.image-name').show();
+	$('#preview').show();  
+	$('.image').show();
+	$('.div-image').css({background:'#65C5B4'});
+	$('.div-text').css({background:'#89898C'});
+})
+
 })

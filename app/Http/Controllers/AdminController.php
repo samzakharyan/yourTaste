@@ -43,27 +43,11 @@ class AdminController extends Controller {
 			return  $e->getMessage();
 		}
 	}
+
+
+	
 	public function useradd() {
 		return view('admin.user-add');   
-	}
-	public function adduser(Request $request) {  	
-		$validator=$request->validate([
-			'name'  => 'required|min:4',
-			'email' => 'required|email|unique:users,email',
-			'password' => 'required|min:6|max:20',  
-		]);
-		try {
-			$users= new User;
-			$users->name=$request->input('name');
-			$users->email=$request->input('email');
-			$users->password=Hash::make($request->input('password'));
-			$users->save();
-			Session::flash('statuscode','success');
-			return redirect('admin/users')->with('status','User successfully Add');
-		}
-		catch(Exception $e) {
-			return  $e->getMessage();
-		}
 	}
 	public function  delete(Request $request, $id) {
 		if ($request->reason == 'check') {

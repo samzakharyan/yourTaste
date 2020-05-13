@@ -18,16 +18,18 @@ Users Edit
                     <form action="{{url('admin/user-update', ['id' => $users->id])}}" method="POST">
                         {{csrf_field()}}
                         {{method_field('PUT')}}
-                        @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        Name:<input type="text"  name="name"  value="{{$users->name}}"  class="form-control"><br>
-                        @error('email')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        Email:<input type="text"  name="email" value="{{$users->email}}" class="form-control"><br>
-                        <button type="submit" class="update-user btn btn-success">Update</button>    
-                        <a href="{{url('admin/users')}}" type="submit" class="btn btn-danger">Cancle</a> 
+                        <div class="form-group col-md-6">
+                            @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            Name:<input type="text"  name="name"  value="{{$users->name}}"  class="form-control"><br>
+                            @error('email')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            Email:<input type="text"  name="email" value="{{$users->email}}" class="form-control"><br>
+                            <button type="submit" class="update-user btn btn-success">Update</button>    
+                            <a href="{{url('admin/users')}}" type="submit" class="btn btn-danger">Cancle</a> 
+                        </div>
                     </form>  
                 </div>
             </div>

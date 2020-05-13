@@ -14,6 +14,7 @@
     <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')}}"></script>
     <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js')}}"></script>
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css')}}">
+    <link href="{{asset('_admin/css/style.css')}}" rel="stylesheet" />
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -31,17 +32,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider">  
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a><a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
@@ -49,6 +40,8 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
+                    <div class="dropdown-divider">  
+                    </div>
                 </div>
             </li>
         </ul>
@@ -95,10 +88,10 @@
                                         </nav>
                                     </div>
                                     <div class="sb-sidenav-menu-heading">Addons</div>
-                                    <a class="nav-link" href="{{url('/charts')}}"
+                                    <a class="nav-link" href="{{route('admin.logo')}}"
                                     ><div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                    Charts</a
-                                    ><a class="nav-link" href="{{url('admin/users')}}"
+                                    Display Settings</a
+                                    ><a class="nav-link" href="{{route('admin.users')}}"
                                     ><div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Users</a>
                             </div>
