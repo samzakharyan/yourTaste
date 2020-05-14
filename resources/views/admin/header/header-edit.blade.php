@@ -17,7 +17,7 @@ Header Update
 			@error('type')
 			<div class="alert alert-danger">{{ $message }}</div>
 			@enderror
-			<div class="type-header">Type<span>. Header</span></div>
+			<div class="type-header">Change<span>. Logo</span></div>
 			<div class="div-parent">
 				<div class="div-text">
 					<label for="text" class="label-type">Text</label>
@@ -29,32 +29,33 @@ Header Update
 					<input type="radio" id="image" name="type" value="image">
 				</div>
 			</div>
-			<div class="col-6 type-style">
-				<h3>Show:</h3>
-				<input type="radio" id="hide" name="show" value="0">
-				<label for="hide">Hide</label><br>
-				<input type="radio" id="showw" name="show" value="1">
-				<label for="showw">Show</label><br>
+			
+			<h3>Show:</h3>
+			<input type="radio" id="hide" name="show" value="0">
+			<label for="hide">Hide</label><br>
+			<input type="radio" id="showw" name="show" value="1">
+			<label for="showw">Show</label><br>
+			<div class="parents-input">
 				@error('name')
 				<div class="alert alert-danger">{{ $message }}</div>
 				@enderror
-				<h3 class="name">Name:</h3>
-				<input type="text" name="name" id="name" class=" name  form-control"  value=""><br>
+				<h3 class="name">Logo Text:</h3>
+				<input type="text" name="name" id="name" class="name form-control"  value="">
 				@error('image-name')
 				<div class="alert alert-danger">{{ $message }}</div>
 				@enderror
 				<h3 class="image-name">Image Name:</h3>
-				<input type="text" value="" name="image-name" id="image-name" class="form-control  image-name"  ><br>
+				<input type="text" value="" name="image-name" id="image-name" class="image-name form-control">
 				@error('image')
 				<div class="alert alert-danger">{{ $message }}</div>
 				@enderror
 				<h3 class="image">Photo:</h3>
 				<label for="photo"><img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg"alt="your image"  style="width: 70px;"/></label>
-				<input type="file" name="image"  multiple="" class="image form-control @error('image') is-invalid @enderror" 
-				value=""   id="photo" aria-describedby="inputGroupFileAddon01" style="display: none;"><br><br>
-				<button type="submit"  class="btn btn-success">Update Logo</button>
-				<a href="{{route('admin.header')}}" type="submit" class="btn btn-danger">Cancle</a> 
+				<input type="file" name="image"  multiple="" class="image  @error('image') is-invalid @enderror" 
+				value=""   id="photo" aria-describedby="inputGroupFileAddon01" style="display: none;">
 			</div>
+			<button type="submit"  class="btn btn-success">Update Logo</button>
+			<a href="{{route('admin.header')}}" type="submit" class="btn btn-danger">Cancle</a> 	
 		</form>
 	</div>
 </main>	

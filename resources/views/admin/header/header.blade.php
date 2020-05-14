@@ -56,12 +56,14 @@ Header Panel
             <td><a href="{{route('admin.header-edit', ['id' => $l->id])}}" class=" edit btn btn-success">Edit</a></td>
           </tr>
         </tbody> 
-        @endif     
-        <thead>
+        @endif   
+        <div class="phone-div">
+        <thead >
           <tr>
             <th>Name</th>
             <th>Phone</th>
             <th>Reserv Name</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody >
@@ -72,6 +74,7 @@ Header Panel
             <td><a href="{{route('admin.header-phone-edit', ['id' => $l->id])}}" class=" edit btn btn-success">Edit</a></td>
           </tr>
         </tbody>  
+        </div>  
         @endforeach
       </table>
     </div>

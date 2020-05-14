@@ -32,3 +32,15 @@
 .type-style{
   padding-top: 30px;
 }
+
+.parents-input{
+  display: grid;
+  grid-template-columns:auto auto;
+  margin: : 50px;
+}
+.parents-input>input{
+ margin: 10px;
+}
+#preview{
+  cursor: pointer;
+}
