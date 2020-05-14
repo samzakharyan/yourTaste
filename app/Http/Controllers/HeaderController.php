@@ -9,11 +9,12 @@ class HeaderController extends Controller
 {
 	public function logo() {
 		$logo=Logo::all();
-		return view('admin.logo.logo')->with('logo', $logo);  
+		return view('admin.header.header')->with('logo', $logo); 
+		
 	}
 	public function logoedit(Request $request, $id) {
 		$logo = Logo::findOrFail($id);
-		return view('admin.logo.logo-edit')->with('logo', $logo);  
+		return view('admin.header.header-edit')->with('logo', $logo);  
 	}
 	public function logoUpdate(Request $request) {
 		$logo=Logo::where($request->id)->first();
@@ -54,9 +55,28 @@ class HeaderController extends Controller
 		}       
 		$logo->update();	
 		Session::flash('statuscode','success');
-		return redirect('admin/logo')->with('status','Logo successfully edited'); 
+		return redirect('admin/header')->with('status','Logo successfully edited'); 
+
+	}
+
+
+	public function phoneedit(Request $request, $id) {
+		$logo = Logo::findOrFail($id);
+		return view('admin.header.header-phone-edit')->with('logo', $logo);  
+	}
+	public function phoneUpdate(Request $request) {
+		$validation = $request->validate([
+			'call_name' => 'required|min:2|max:50',
+			'phone' => 'required|numeric|min:9',
+			'reserv_name'=> 'required|min:2|max:50',  
+		]);	
+		$logo=Logo::where($request->id)->first();
+		$logo->call_name=$request->input('call_name');
+		$logo->phone=$request->input('phone');
+		$logo->reserv_name=$request->input('reserv_name');
 		$logo->update();	
 		Session::flash('statuscode','success');
-		return redirect('admin/logo')->with('status','Logo successfully edited'); 
+		return redirect('admin/header')->with('status','Phone successfully edited'); 
 	}
+
 }

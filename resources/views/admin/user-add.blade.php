@@ -15,7 +15,7 @@ Users Add
             <div class="card-header"><i class="fas fa-table mr-1"></i>Users Add</div>
             <div class="card-body">
                 <div class="table-responsive">
-                   <form method="POST" action="{{ route('register') }}">
+                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="form-group col-md-6">
                         Name:<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -40,7 +40,7 @@ Users Add
                         <button type="submit" class="btn btn-primary" id="register">
                             {{ __('Register') }}
                         </button>  
-                        <a href="{{url('admin/users')}}" type="submit" class="btn btn-danger">Cancle</a> 
+                        <a href="{{route('admin.users')}}" type="submit" class="btn btn-danger">Cancle</a> 
                     </div>
                 </form>   
                 

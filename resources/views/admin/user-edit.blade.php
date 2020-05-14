@@ -15,7 +15,7 @@ Users Edit
             <div class="card-header"><i class="fas fa-table mr-1"></i>Users Update</div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <form action="{{url('admin/user-update', ['id' => $users->id])}}" method="POST">
+                    <form action="{{route('admin.update', ['id' => $users->id])}}" method="POST">
                         {{csrf_field()}}
                         {{method_field('PUT')}}
                         <div class="form-group col-md-6">
@@ -28,7 +28,7 @@ Users Edit
                             @enderror
                             Email:<input type="text"  name="email" value="{{$users->email}}" class="form-control"><br>
                             <button type="submit" class="update-user btn btn-success">Update</button>    
-                            <a href="{{url('admin/users')}}" type="submit" class="btn btn-danger">Cancle</a> 
+                            <a href="{{route('admin.users')}}" type="submit" class="btn btn-danger">Cancle</a> 
                         </div>
                     </form>  
                 </div>

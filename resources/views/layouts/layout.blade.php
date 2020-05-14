@@ -88,7 +88,7 @@
                                         </nav>
                                     </div>
                                     <div class="sb-sidenav-menu-heading">Addons</div>
-                                    <a class="nav-link" href="{{route('admin.logo')}}"
+                                    <a class="nav-link" href="{{route('admin.header')}}"
                                     ><div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                     Display Settings</a
                                     ><a class="nav-link" href="{{route('admin.users')}}"

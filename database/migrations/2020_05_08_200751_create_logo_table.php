@@ -16,10 +16,13 @@ class CreateLogoTable extends Migration
         Schema::create('logo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type')->default('text');
-            $table->boolean('show')->default('1');;
+            $table->boolean('show')->default('1');
             $table->string('name')->nullable();
             $table->string('image_name')->nullable();
             $table->string('image')->nullable();
+            $table->string('call_name');
+            $table->integer('phone');
+            $table->string('reserv_name');
             $table->timestamps();
         });
            

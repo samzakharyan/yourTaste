@@ -15,6 +15,9 @@ class LogoSeeder extends Seeder
                  'type'=>'text',
                  'show'=>'1',
                  'name'=>'Your Taste',
+                 'call_name'=>'Call Me',
+                 'phone'=>'125478',
+                 'reserv_name'=>'Name',
                ]);
 
     }

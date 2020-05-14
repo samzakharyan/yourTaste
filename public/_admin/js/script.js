@@ -49,7 +49,6 @@ $(document).ready(function(){
 			
 		});
 	});
-
 // Image Upload
 $("#photo").change(function(event) {  
 	readURL(this);    
@@ -67,15 +66,12 @@ function readURL(input) {
 		reader.readAsDataURL(input.files[0]);    
 	} 
 }
-
-
-
 $('.div-text').click(function(){
 	$('.name').show();
 	$('.image-name').hide();
 	$('#preview').hide();  
 	$('.image').hide();
-	$('.div-text').css({background:'#65C5B4'});
+	$('.div-text').css({background:'#007BFF'});
 	$('.div-image').css({background:'#89898C'});
 })
 
@@ -83,9 +79,11 @@ $('.div-image').click(function(){
 	$('.name').hide();
 	$('.image-name').show();
 	$('#preview').show();  
-	$('.image').show();
-	$('.div-image').css({background:'#65C5B4'});
+	$('.image').hide();
+	$('.div-image').css({background:'#007BFF'});
 	$('.div-text').css({background:'#89898C'});
 })
+
+
 
 })
