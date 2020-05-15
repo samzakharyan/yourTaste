@@ -1,13 +1,13 @@
 @extends("layouts.layout")
 @section("title")
-Admin Panel
+    Admin Panel
 @endsection
 @section("content")
-@section("title-name")
-Admin
-@endsection
-@section("name")
-Admin Panel
+     @section("title-name")
+        Admin
+     @endsection
+     @section("name")
+        Admin Panel
 @endsection
 <main>
     <div class="container-fluid">

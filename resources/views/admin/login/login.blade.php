@@ -32,29 +32,29 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="small mb-1" for="password">{{ __('Password') }}</label>
-                                <input class="form-control py-4 @error('password') is-invalid @enderror" id="password" type="password" name="password" required autocomplete="current-password" placeholder="Enter password" />
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                               <label class="small mb-1" for="password">{{ __('Password') }}</label>
+                               <input class="form-control py-4 @error('password') is-invalid @enderror" id="         password" type="password" name="password" required autocomplete="current-password"          placeholder="Enter password" />
+                               @error('password')
+                               <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
                             </div>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Login') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>  
-                    </div>
-                    <div class="card-footer text-center">
-                    </div>
+                        </div>
+                    </form>  
+                </div>
+                <div class="card-footer text-center">
                 </div>
             </div>
         </div>
     </div>
+</div>
 </main>
 </div>
 <div id="layoutAuthentication_footer">
