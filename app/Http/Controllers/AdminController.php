@@ -23,14 +23,14 @@ class AdminController extends Controller {
 	{
 		$users = User::all();
 
-		return view('admin.users')->with('users', $users);   
+		return view('admin.user.users')->with('users', $users);   
 	}
 
 	public function useredit(Request $request, $id)
 	{
 		$users = User::findOrFail($id);
 
-		return view('admin.user-edit')->with('users', $users);                          
+		return view('admin.user.user-edit')->with('users', $users);                          
 	}
 
 	public function  userupdate(Request $request, $id)
@@ -47,7 +47,7 @@ class AdminController extends Controller {
 			$users->update();
 			Session::flash('statuscode','success');
 
-			return redirect('admin/users')->with('status','User successfully edited');
+			return redirect('admin/user/users')->with('status','User successfully edited');
 		}
 
 		catch(Exception $e)
@@ -58,7 +58,7 @@ class AdminController extends Controller {
 
 	public function useradd() 
 	{
-		return view('admin.user-add');   
+		return view('admin.user/user-add');   
 	}
 
 	public function  delete(Request $request, $id) {
