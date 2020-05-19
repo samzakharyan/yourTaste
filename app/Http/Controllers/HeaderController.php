@@ -1,78 +1,63 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Exception;
 use App\Models\Logo;
 use Session;
 use DB;
-class HeaderController extends Controller
-{
-	public function logo() 
 
-	{
-		$logo=Logo::all();
+class HeaderController extends Controller {
 
+	public function logo() {
+		$logo = Logo::all();
 		return view('admin.header.header')->with('logo', $logo); 	
 	}
 
-
-	public function logoedit(Request $request, $id) 
-
-	{
+	public function logoedit(Request $request, $id) {
 		$logo = Logo::findOrFail($id);
-
 		return view('admin.header.header-edit')->with('logo', $logo);  
 	}
 
+	public function logoUpdate(Request $request) {
+	   $logo = Logo::where($request->id)->first();
 
-	public function logoUpdate(Request $request)
-
-
-
-	{
-
-	   $logo=Logo::where($request->id)->first();
-
-		if ($request->type == 'text') 
-		{
+		if ($request->type == 'text') {
 			$validation = $request->validate([
-				'type' => 'required',
-				'show' => 'required',
-				'name'       => 'required|min:2|max:50',  
+				'type' 	=> 'required',
+				'show' 	=> 'required',
+				'name'  => 'required|min:2|max:50',  
 			]);
 
-
 			$data = [
-				'type' =>$request->type,
-				'show'     =>$request->show,
-				'name'=>$request->name,
-				'image_name'=>$request->image_name,
-				'image'=>$request->image,
+				'type'			=> $request->type,
+				'show'			=> $request->show,
+				'name'			=> $request->name,
+				'image_name'	=> $request->image_name,
+				'image'			=> $request->image,
 			];
-
 		}
 
 		else {
-
-			$validation=$request->validate(
+			$validation = $request->validate(
 				[
-					'type' => 'required',
-					'show' => 'required',
-					'image_name' => 'required|min:2|max:50',           
-					'image'      => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+					'type'		=> 'required',
+					'show'		=> 'required',
+					'image_name'=> 'required|min:2|max:50',           
+					'image'		=> 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
 				]);
 
-			if($request->hasfile('image'))
-			{
-				$file=$request->file('image');
-				$data=$file->getClientOriginalExtension();
-				$filename=time(). '.'.$data;
-				$file->move('user/images/', $filename);
-				$logo->image=$filename;
+			if ($request->hasfile('image')) {
+				$file = $request->file('image');
+				$filename = md5(micotime()) . '.' . $file->getClientOriginalExtension();
+				$move = $file->move(public_path() . '/user/images/', $filename);
 			}
-			
-			else{
+
+			if ($move) {
+				dd(1);
+			} else {
+				dd(2);
 				return $request;
 				$logo->image="";
 			}

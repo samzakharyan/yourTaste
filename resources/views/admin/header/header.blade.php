@@ -12,6 +12,10 @@
     
   <main>
    <div class="container-fluid">
+                      @if (count($logo) == 0)
+              <p>Please in terminal ran db:seed command</p>
+              @else 
+
     <div class="card mb-4" style="margin-top: 60px">
       <div class="card-header"><i class="fas fa-table mr-1"></i>Header</div> 
         <div class="card-body">  
@@ -89,6 +93,7 @@
                  </table>
               </div>
           </div>
+              @endif
       </div>
     </div>
   </main>

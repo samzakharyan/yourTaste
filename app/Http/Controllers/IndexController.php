@@ -16,7 +16,7 @@ class IndexController extends Controller
           $logo['call_name'] = 'Call Me';
           $logo['phone'] = '111111111';
           $logo['reserv_name'] = 'Reserve';
-          return view('user.index')->with('logo', $logo);
           $logo['name'] = 'Your Teaste';
+          return view('user.index')->with('logo', $logo);
       } 
   }
