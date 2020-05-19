@@ -47,12 +47,12 @@
 					<h3 class="name">Logo Text:</h3>
 					<input type="text" name="name" id="name" class="name form-control"  value=""/>
 
-				@error('image-name')
+				@error('image_name')
 					<div class="alert alert-danger">{{ $message }}</div>
 				@enderror
 
 					<h3 class="image-name">Image Name:</h3>
-					<input type="text" value="" name="image-name" id="image-name" 
+					<input type="text" value="" name="image_name" id="image-name" 
 					class="image-name form-control"/>
 
 				@error('image')

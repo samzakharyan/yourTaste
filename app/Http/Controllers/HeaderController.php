@@ -50,7 +50,6 @@ class HeaderController extends Controller
 				'image_name'=>$request->image_name,
 				'image'=>$request->image,
 			];
-			$update = Logo::where($request->id)->update($data);
 
 		}
 
@@ -60,14 +59,9 @@ class HeaderController extends Controller
 				[
 					'type' => 'required',
 					'show' => 'required',
-					'image-name' => 'required|min:2|max:50',           
+					'image_name' => 'required|min:2|max:50',           
 					'image'      => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
 				]);
-
-			$logo->type=$request->input('type');
-			$logo->show=$request->input('show');
-			$logo->name=$request->input('name');
-			$logo->image_name=$request->input('image-name');
 
 			if($request->hasfile('image'))
 			{
@@ -77,15 +71,21 @@ class HeaderController extends Controller
 				$file->move('user/images/', $filename);
 				$logo->image=$filename;
 			}
-
+			
 			else{
 				return $request;
 				$logo->image="";
 			}
-
-			$logo->update();
+			$data = [
+				'type' =>$request->type,
+				'show' =>$request->show,
+				'name'=>$request->name,
+				'image_name'=>$request->image_name,
+				'image'=>$filename,
+			];
+	
 		}       
-		
+		$update = Logo::where($request->id)->update($data);
 		Session::flash('statuscode','success');
 
 		return redirect('admin/header')->with('status','Logo successfully edited'); 
