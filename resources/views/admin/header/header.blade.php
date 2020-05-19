@@ -9,6 +9,7 @@
     @section("name")
        Header Panel
     @endsection
+    
   <main>
    <div class="container-fluid">
     <div class="card mb-4" style="margin-top: 60px">
@@ -16,6 +17,7 @@
         <div class="card-body">  
           <div class="table-responsive">
             <table class="table table-bordered"  width="100%" cellspacing="0">
+
        @foreach($logo as $l)
            @if($l->type=='image')
                   <thead>
@@ -33,8 +35,10 @@
                        <td>{{$l->type}}</td>
                        <td>{{$l->show}}</td>
                        <td>{{$l->image_name}}</td>
-                       <td><img src="{{asset('user/images/' . $l->image)}}" alt="Lights" style="width:70px;"></td>
-                       <td><a href="{{route('admin.header-edit', ['id' => $l->id])}}" class=" edit btn btn-success">Edit</a></td>
+                       <td><img src="{{asset('user/images/' . $l->image)}}" alt="" style="width:70px;"></td>
+                       <td>
+                        <a href="{{route('admin.header-edit', ['id' => $l->id])}}" class="edit btn btn-success">Edit</a>
+                      </td>
                     </tr>
                   </tbody> 
 
@@ -53,11 +57,12 @@
                       <td>{{$l->type}}</td>
                       <td>{{$l->show}}</td>
                       <td>{{$l->name}}</td>
-                      <td><a href="{{route('admin.header-edit', ['id' => $l->id])}}" class=" edit btn btn-success">Edit</a></td>
+                      <td><a href="{{route('admin.header-edit', ['id' => $l->id])}}" class="edit btn btn-success">Edit</a></td>
                     </tr>
                   </tbody> 
 
-            @endif   
+            @endif
+
                    <div class="phone-div">
                      <thead >
                        <tr>
@@ -73,18 +78,21 @@
                          <td>{{$l->call_name}}</td>
                          <td>{{$l->phone}}</td>
                          <td>{{$l->reserv_name}}</td>
-                         <td><a href="{{route('admin.header-phone-edit', ['id' => $l->id])}}" class=" edit btn btn-success">Edit</a></td>
+                         <td><a href="{{route('admin.header-phone-edit', ['id' => $l->id])}}" class="edit btn btn-success">Edit</a></td>
                        </tr>
                      </tbody> 
 
-                   </div>  
+                   </div> 
+
           @endforeach
+
                  </table>
               </div>
           </div>
       </div>
     </div>
   </main>
+
 @endsection 
 
 

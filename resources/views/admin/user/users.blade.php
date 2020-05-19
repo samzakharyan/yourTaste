@@ -9,12 +9,14 @@
    @section("name")
         Users Panel
    @endsection
+
       <main>
         <div class="container-fluid" class="aaaaa">
           <div class="card mb-4" style="margin-top: 60px">
             <div class="card-header"><i class="fas fa-table mr-1"></i>Users</div> 
               <div class="card-body">  
-                 <a href="{{route('admin.add')}}" style="margin-top: 10px; margin-bottom: 10px;"  class="btn    btn-primary">      Add User</a> 
+                 <a href="{{route('admin.add')}}" style="margin-top: 10px; margin-bottom: 10px;"  
+                 class="btn btn-primary">Add User</a> 
                  <div class="table-responsive">
                    <table class="table table-bordered" width="100%" cellspacing="0">
                          <thead>
@@ -26,7 +28,9 @@
                              <th>Delete</th>
                            </tr>
                          </thead>
-                     @foreach($users as $user)
+
+                    @foreach($users as $user)
+
                          <tbody >
                             <tr>
                               <td>{{$user->id}}</td>
@@ -42,12 +46,15 @@
                                </button>
                              </td>
                            </tr>
-                         </tbody> 
+                         </tbody>
+
                     @endforeach
+
                   </table>
                 </div>
               </div>
             </div>
           </div>
       </main>
+      
 @endsection
