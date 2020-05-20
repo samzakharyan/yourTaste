@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Route::get('/', 'IndexController@index')->name('user.index');
+Route::get('/', 'IndexController@index')->name('index');
 Route::group(['prefix' => 'admin'], function() {
 	Route::get('/', 'AdminController@admin')->name('admin.admin');
 	//User Panel
