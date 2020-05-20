@@ -11,7 +11,7 @@
     <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js')}}" crossorigin="anonymous"></script>
 </head>
 <body class="bg-primary">
- <div id="layoutAuthentication">
+   <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
         <main>
             <div class="container">
@@ -20,7 +20,7 @@
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                             <div class="card-body">
-                             <form method="POST" action="{{ route('login') }}">
+                               <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
                                   <label class="small mb-1" for="email">{{ __('E-Mail Address') }}</label>
@@ -32,10 +32,10 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                               <label class="small mb-1" for="password">{{ __('Password') }}</label>
-                               <input class="form-control py-4 @error('password') is-invalid @enderror" id="         password" type="password" name="password" required autocomplete="current-password"          placeholder="Enter password" />
-                               @error('password')
-                               <span class="invalid-feedback" role="alert">
+                             <label class="small mb-1" for="password">{{ __('Password') }}</label>
+                             <input class="form-control py-4 @error('password') is-invalid @enderror" id="         password" type="password" name="password" required autocomplete="current-password"          placeholder="Enter password" />
+                             @error('password')
+                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror

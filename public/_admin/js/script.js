@@ -56,41 +56,38 @@ $(document).ready(function(){
 	});
 
 // Image Upload
-$("#photo").change(function(event) {  
-	readURL(this);    
-});
+		$("#photo").change(function(event) {  
+			readURL(this);    
+		});
 
-function readURL(input) {    
-	if (input.files && input.files[0]) {   
-		let reader = new FileReader();
-		let filename = $("#photo").val();
+		function readURL(input) {    
+		    if (input.files && input.files[0]) {   
+		    	let reader = new FileReader();
+		    	let filename = $("#photo").val();
+	    
+		    	filename = filename.substring(filename.lastIndexOf('\\')+1);
+		    	reader.onload = function(e) {     
+		    		$('#preview').attr('src', e.target.result);
+		    		$('#preview').hide();
+		    		$('#preview').fadeIn(500);               
+		    	}
+		    	reader.readAsDataURL(input.files[0]);    
+		    } 
+        }
 
-		filename = filename.substring(filename.lastIndexOf('\\')+1);
-		reader.onload = function(e) {     
-			$('#preview').attr('src', e.target.result);
-			$('#preview').hide();
-			$('#preview').fadeIn(500);               
-		}
-		reader.readAsDataURL(input.files[0]);    
-	} 
-}
+		$('.div-text').click(function(){
+	        $('.name').css({display:'block'});
+	        $('.image-name').css({display:'none'});
+	        $('.image').css({display:'none'});
+	        $('.div-text').css({background:'#007BFF'});
+	        $('.div-image').css({background:'#89898C'});
+        })
 
-$('.div-text').click(function(){
-	$('.name').show();
-	$('.image-name').hide();
-	$('#preview').hide();  
-	$('.image').hide();
-	$('.div-text').css({background:'#007BFF'});
-	$('.div-image').css({background:'#89898C'});
-})
-
-$('.div-image').click(function(){
-	$('.name').hide();
-	$('.image-name').show();
-	$('#preview').show();  
-	$('.image').hide();
-	$('.div-image').css({background:'#007BFF'});
-	$('.div-text').css({background:'#89898C'});
-})
-
+        $('.div-image').click(function(){
+           	$('.name').css({display:'none'});
+	        $('.image-name').show();
+	        $('.image').css({display:'block'});
+        	$('.div-image').css({background:'#007BFF'});
+        	$('.div-text').css({background:'#89898C'});
+        })
 })

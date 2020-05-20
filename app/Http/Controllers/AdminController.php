@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -7,47 +8,27 @@ use Exception;
 use Session;
 use Illuminate\Support\Facades\Hash;
 
-
 class AdminController extends Controller {
 
-	public function __construct() 
-
-	{
+	public function __construct() {
 		$this->middleware('auth'); 
 	}
 
-
-
-	public function admin()
-
-
-	{
+	public function admin() {
 		return view('admin.admin');  
 	}
 
-
-	public function users()
-
-	{
+	public function users() {
 		$users = User::all();
-
 		return view('admin.user.users')->with('users', $users);   
 	}
 
-
-	public function useredit(Request $request, $id)
-
-	{
+	public function useredit(Request $request, $id) {
 		$users = User::findOrFail($id);
-
 		return view('admin.user.user-edit')->with('users', $users);                          
 	}
 
-
-	public function  userupdate(Request $request, $id)
-
-
-	{
+	public function  userupdate(Request $request, $id) {
 		$validator=$request->validate(
 			[
 				'name'  => 'required|min:4',
@@ -55,29 +36,22 @@ class AdminController extends Controller {
 			]);
 
 		$data = [
-			'name' =>$request->name,
-			'email' =>$request->email,
+			'name'  => $request->name,
+			'email' => $request->email,
 			
 		];
 
 		$update = User::find($id)->update($data);
 		Session::flash('statuscode','success');
-
 		return redirect('admin/users')->with('status','User successfully edited');
-
 	}
 
-
-	public function useradd() 
-
-
-	{
+	public function useradd() {
 		return view('admin.user/user-add');   
 	}
 
 	public function  delete(Request $request, $id) {
 
-		
 		if ($request->reason == 'check') {
 			if (Auth::user()->id == $id) {
 				return response()->json(['msg' => 'You are want to delete your account. Are you sure?']);
@@ -90,9 +64,5 @@ class AdminController extends Controller {
 			return $delete ? response()->json(['fail' => false, 'msg' => 'You are successfully deleted.']) : 
 			response()->json(['fail' => true, 'msg' => 'Something went wrong. Please try again.']);	
 		}
-
-
 	}
-
-
 }

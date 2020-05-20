@@ -9,7 +9,7 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::get('user/edit/{id}','AdminController@useredit')->name('admin.edit');
 	Route::put('user/update/{id}','AdminController@userupdate')->name('admin.update'); 
 	Route::post('user/delete/{id}',  'AdminController@delete')->name('admin.delete');	
-	Route::get('user-add','AdminController@useradd')->name('admin.add');
+	Route::get('user/add','AdminController@useradd')->name('admin.add');
 	//Login, Register, Logout	
 	Route::post('/register', 'Auth\RegisterController@register')->name('register');
 	Route::post('/login', 'Auth\LoginController@login')->name('login');
