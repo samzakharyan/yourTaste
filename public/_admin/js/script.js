@@ -5,7 +5,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.deletebtn').click(function(){
+	$('.deletebtn').click(function() {
 		let id = $(this).closest('tr').children('td').first().text();	
 		let url = $(this).data('url');
 		$.ajax({
@@ -39,8 +39,7 @@ $(document).ready(function(){
 						data: {id:'id', reason: 'delete'},
 						success: function (response)
 						{
-							if (response.fail)
-							{	
+							if (response.fail) {	
 								swal("Error!", response.msg, "success");
 								setTimeout(function(){  location.reload();},3000);
 							} else {
@@ -61,21 +60,51 @@ $(document).ready(function(){
 		});
 
 		function readURL(input) {    
-		    if (input.files && input.files[0]) {   
+		    if (input.files && input.files[0]) {  
+
 		    	let reader = new FileReader();
 		    	let filename = $("#photo").val();
-	    
-		    	filename = filename.substring(filename.lastIndexOf('\\')+1);
+                filename = input.files[0]['name'].substring(input.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();
+		    	if(filename == "gif" || filename == "png" || filename == "jpeg" || filename == "jpg") {
 		    	reader.onload = function(e) {     
 		    		$('#preview').attr('src', e.target.result);
 		    		$('#preview').hide();
 		    		$('#preview').fadeIn(500);               
 		    	}
-		    	reader.readAsDataURL(input.files[0]);    
+
+		    	reader.readAsDataURL(input.files[0]); 
+		       }
+		       else {
+		        swal("Error!", 'You can select only png, gif, jpeg, jpg quality files', "error");
+		       }   
 		    } 
         }
 
-		$('.div-text').click(function(){
+        $("#favicon").change(function(event) {  
+			readURL(this);    
+		});
+
+		function readURL(input) {    
+		    if (input.files && input.files[0]) {  
+		    	let reader = new FileReader();
+		    	let filename = $("#favicon").val();
+                filename = input.files[0]['name'].substring(input.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();
+		    	if(filename == "gif" || filename == "png" || filename == "jpeg" || filename == "jpg") {
+		    	reader.onload = function(e) {     
+		    		$('#preview').attr('src', e.target.result);
+		    		$('#preview').hide();
+		    		$('#preview').fadeIn(500);               
+		    	}
+		    	reader.readAsDataURL(input.files[0]); 
+		       }
+		       else{
+		        swal("Error!", 'You can select only png, gif, jpeg, jpg quality files', "error");
+		       }   
+		    } 
+        }
+
+
+		$('.div-text').click(function() {
 	        $('.name').css({display:'block'});
 	        $('.image-name').css({display:'none'});
 	        $('.image').css({display:'none'});
@@ -83,7 +112,7 @@ $(document).ready(function(){
 	        $('.div-image').css({background:'#89898C'});
         })
 
-        $('.div-image').click(function(){
+        $('.div-image').click(function() {
            	$('.name').css({display:'none'});
 	        $('.image-name').show();
 	        $('.image').css({display:'block'});

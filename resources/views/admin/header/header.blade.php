@@ -67,29 +67,52 @@ Header
       <div class="card-header"><i class="fas fa-table mr-1"></i>Header Settings</div> 
         <div class="card-body">  
           <div class="table-responsive">
-                    <table class="table table-bordered"  width="100%" cellspacing="0">
-                       <thead >
-                         <tr>
-                           <th>Name</th>
-                           <th>Phone</th>
-                           <th>Reserv Name</th>
-                           <th>Edit</th>
-                         </tr>
-                       </thead>
-                       <tbody >
-                         <tr>
-                          <td>{{$logo->call_name}}</td>
-                          <td>{{$logo->phone}}</td>
-                          <td>{{$logo->reserv_name}}</td>
-                          <td><a href="{{route('admin.header-phone-edit', ['id' => $logo->id])}}" class="edit btn btn-success">Edit</a></td>
-                        </tr>
-                      </tbody> 
-                     </table>
-      @endforeach        
+            <table class="table table-bordered"  width="100%" cellspacing="0">
+               <thead >
+                 <tr>
+                   <th>Name</th>
+                   <th>Phone</th>
+                   <th>Reserv Name</th>
+                   <th>Edit</th>
+                 </tr>
+               </thead>
+               <tbody >
+                 <tr>
+                  <td>{{$logo->call_name}}</td>
+                  <td>{{$logo->phone}}</td>
+                  <td>{{$logo->reserv_name}}</td>
+                  <td><a href="{{route('admin.header-phone-edit', ['id' => $logo->id])}}" class="edit btn btn-success">Edit</a></td>
+                </tr>
+              </tbody> 
+             </table>       
           </div>
         </div>
       </div>
-    @endif
+        <div class="card mb-4">
+      <div class="card-header"><i class="fas fa-table mr-1"></i>Header Title</div> 
+        <div class="card-body">  
+          <div class="table-responsive">
+             <table class="table table-bordered"  width="100%" cellspacing="0">
+                <thead >
+                  <tr>
+                    <th>Name</th>
+                    <th>FavIcon</th>
+                    <th>Edit</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr>
+                   <td>{{$logo->column}}</td>
+                   <td><img src="{{asset('user/images/' . $logo->favicon)}}" alt="" style="width:70px;"></td>
+                   <td><a href="{{route('admin.header-title-edit', ['id' => $logo->id])}}" class="btn btn-success">Edit</a></td>
+                 </tr>
+               </tbody> 
+              </table>   
+        @endforeach      
+          </div>
+        </div>
+      </div>
+   @endif
       </div>   
     </main>
 @endsection 

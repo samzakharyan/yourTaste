@@ -21,5 +21,7 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::put('header/update','HeaderController@logoUpdate')->name('admin.header-update'); 
 	Route::get('header/phone/edit/{id}','HeaderController@phoneedit')->name('admin.header-phone-edit');
 	Route::put('header/phone/update','HeaderController@phoneUpdate')->name('admin.header-phone-update'); 
+	Route::get('header/title/edit/{id}','HeaderController@titleedit')->name('admin.header-title-edit');
+	Route::put('header/title/update','HeaderController@titleUpdate')->name('admin.header-title-update'); 
 });
 

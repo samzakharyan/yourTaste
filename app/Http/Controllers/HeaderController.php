@@ -49,9 +49,9 @@ class HeaderController extends Controller {
 				]);
 
 			if ($request->hasfile('image')) {
-				$file = $request->file('image');
+				$file     = $request->file('image');
 				$filename = md5(microtime()) . '.' . $file->getClientOriginalExtension();
-				$move = $file->move(public_path() . '/user/images/', $filename);
+				$move     = $file->move(public_path() . '/user/images/', $filename);
 			}
 			else {
 				return $request;
@@ -91,5 +91,35 @@ class HeaderController extends Controller {
 		$update = Logo::where($request->id)->update($data);
 		Session::flash('statuscode','success');
 		return redirect('admin/header')->with('status','Phone successfully edited'); 
+	}
+
+	public function titleedit(Request $request, $id) {
+		$logo = Logo::findOrFail($id);
+		return view('admin.header.header-title-edit')->with('logo', $logo);  
+	}
+
+	public function titleUpdate(Request $request) {
+		$validation = $request->validate([
+			'column'   => 'required|min:2|max:50',
+			'favicon'  => 'required|min:2|max:250',
+		]);
+
+		if ($request->hasfile('favicon')) {
+			$file     = $request->file('favicon');
+			$favicon = md5(microtime()) . '.' . $file->getClientOriginalExtension();
+			$move     = $file->move(public_path() . '/user/images/', $favicon);
+		}
+		else {
+			return $request;
+			$logo->favicon="";
+		}
+
+		$data = [
+			'column'   => $request->column,
+			'favicon'  => $favicon,
+		];
+		$update = Logo::where($request->id)->update($data);
+		Session::flash('statuscode','success');
+		return redirect('admin/header')->with('status','Title successfully edited'); 
 	}
 }

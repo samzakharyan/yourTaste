@@ -2,14 +2,8 @@
 <html lang="en">
 <head>
 
-     <title>Eatery Cafe and Restaurant Template</title>
-<!-- 
-
-Eatery Cafe Template 
-
-http://www.templatemo.com/tm-515-eatery
-
--->
+     <title>{{$logo['column']}}</title>
+<link rel="shortcut icon" href="{{asset('user/images/' . $logo['favicon'])}}" /> 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="description" content="">

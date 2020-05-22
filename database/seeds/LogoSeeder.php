@@ -18,6 +18,8 @@ class LogoSeeder extends Seeder
                  'call_name'=>'Call Me',
                  'phone'=>'125478',
                  'reserv_name'=>'Name',
+                 'column'=>'Laravel-Cloud',
+                 'favicon'=>'logo.png',
                ]);
 
     }

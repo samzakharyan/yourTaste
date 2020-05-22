@@ -23,6 +23,8 @@ class CreateLogoTable extends Migration
             $table->string('call_name');
             $table->integer('phone');
             $table->string('reserv_name');
+            $table->string('column');
+            $table->string('favicon');
             $table->timestamps();
         });
            

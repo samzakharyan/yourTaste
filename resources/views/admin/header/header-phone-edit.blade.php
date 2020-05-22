@@ -34,7 +34,7 @@
                                 @enderror
                                       Reserv Name:<input type="text"  name="reserv_name" 
                                       value="{{$logo->reserv_name}}"  class="form-control"><br>
-                                <button type="submit" class="update-user btn btn-success">Update Phone
+                                <button type="submit" class="btn btn-success">Update Phone
                                 </button> 
                                 <a href="{{route('admin.header')}}" type="submit" class="btn btn-danger">Cancle</a>  
                             </div>

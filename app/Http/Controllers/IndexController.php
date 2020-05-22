@@ -11,12 +11,14 @@ class IndexController extends Controller{
              if (!empty($logo)) {
                return view('user.index')->with('logo', $logo);
              }
-             $logo['name'] = 'Your Teaste';
-             $logo['type'] = 'text';
-             $logo['call_name'] = 'Call Me';
-             $logo['phone'] = '111111111';
-             $logo['reserv_name'] = 'Reserve';
-             $logo['name'] = 'Your Teaste';
+             $logo['name']        = 'Laravel-Cloud';
+             $logo['type']        = 'text';
+             $logo['call_name']   = 'Laravel-Cloud';
+             $logo['phone']       = '111111111';
+             $logo['reserv_name'] = 'Laravel-Cloud';
+             $logo['name']        = 'Laravel-Cloud';
+             $logo['column']      = 'Laravel-Cloud';
+             $logo['favicon']     = 'logo.png';
              return view('user.index')->with('logo', $logo);
     
         } 
