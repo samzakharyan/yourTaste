@@ -106,7 +106,7 @@ class HeaderController extends Controller {
 
 		if ($request->hasfile('favicon')) {
 			$file     = $request->file('favicon');
-			$favicon = md5(microtime()) . '.' . $file->getClientOriginalExtension();
+			$favicon  = md5(microtime()) . '.' . $file->getClientOriginalExtension();
 			$move     = $file->move(public_path() . '/user/images/', $favicon);
 		}
 		else {

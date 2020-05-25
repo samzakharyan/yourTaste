@@ -23,20 +23,17 @@
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                       Column:<input type="text"  name="column"  
-                                      class="form-control"><br>
+                                      class="form-control" value="{{$logo->column}}"><br>
                                 @error('favicon')
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                      <label class="col-lg-3 col-form-label form-control-label" for="photo">
-                                       <img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg"
-                                       alt="your image"  style="width: 300px;"/>
-                                       <img src="" id="output" alt="">
+                                       <img id="preview" src="{{asset('user/images/' . $logo->favicon)}}"
+                                       />
                                      </label>
-                                      <input  type="file"  name="favicon" 
-                                       class="form-control" multiple="" id="photo" style="display: none;"><br>
-                                       <input type="button"  class="btn btn-primary" value="Resize Image"  onclick="ResizeImage()"/> <br>
-                                      <button type="submit" class="btn btn-success">Update Title
-                                      </button> 
+                                      <input  type="file"  name="favicon" class="form-control" multiple="" id="photo" 
+                                       accept="image/gif, image/jpeg, image/png, image.jpg"><br>
+                                      <button type="submit" class="btn btn-success">Update FavIcon</button> 
                                 <a href="{{route('admin.header')}}" type="submit" class="btn btn-danger">Cancle</a>  
                             </div>
                         </form>  

@@ -9,7 +9,7 @@ Header
         @section("name")
            Header Update
         @endsection
-	    	        <main> 
+	    	    <main> 
 		        	<div class="container-fluid">
 		        		<div class="container">
 		        			<div class="col-lg-8 push-lg-4 personal-info">
@@ -19,11 +19,11 @@ Header
 					                	{{method_field('PUT')}}
 					                     <div class="type-header">Change<span>. Logo</span></div>
 					                        <div class="div-parent">
-					                     	    <div class="div-text">
+					                     	    <div class="div-text" style="{{$logo->type == 'text' ? 'background: #007BFF' : 'background: : #89898C'}}">
 					                     	    	<label for="text" class="label-type">Text</label>
 					                     	    	<input type="radio" id="text" name="type" value="text"/>
 					                     	    </div>
-					                     	    <div class="div-image">
+					                     	    <div class="div-image"  style="{{$logo->type == 'image' ? 'background: #007BFF' : 'background: : #89898C'}}">
 					                     	    	<label for="image" class="label-type">Image</label>
 					                     	    	<input type="radio" id="image" name="type" value="image"/>
 					                     	    </div>
@@ -40,44 +40,40 @@ Header
 					                	    <div class="col-lg-9">
 					                	    	<input type="radio" id="hide" name="show" value="0"/>
 					                	    	<label for="hide">Hide</label><br>
-					                	    	<input type="radio" id="showw" name="show" value="1"/>
+					                	    	<input type="radio" id="showw" name="show" value="1" checked="" />
 					                	    	<label for="showw">Show</label><br>
 					                	    </div>
 					                </div>
-					                @error('name')
-					                     <div class="alert alert-danger">{{ $message }}</div>
-					                @enderror
-					                <div class="form-group row name" 
-					                style="{{$logo->type == 'text' ? 'display: block' : 'display: none'}}">
+					                <div class="form-group row name" style="{{$logo->type == 'text' ? 'display: block' : 'display: none'}}">
+					            @error('name')
+					                 <div class="alert alert-danger">{{ $message }}</div>
+					            @enderror
 					                	<label class="col-lg-3 col-form-label form-control-label">Logo Text</label>
 					                	    <div class="col-lg-9">
 					                	    	<input type="text" name="name" id="name" class="form-control" 
 					                	    	value="{{$logo->name}}"/>
 					                	    </div>
 					                </div>	
+					                <div class="form-group row image-name" 
+					                style="{{$logo->type == 'image' ? 'display: block' : 'display: none'}}">
 					            @error('image_name')
 					                 <div class="alert alert-danger">{{ $message }}</div>
 					            @enderror		
-					                <div class="form-group row image-name" 
-					                style="{{$logo->type == 'image' ? 'display: block' : 'display: none'}}">
 					                	<label class="col-lg-3 col-form-label form-control-label">Image Name</label>
 					                	    <div class="col-lg-9">
-					                	    	<input type="text" name="image_name" id="image-name" 
-					                	    	class="form-control" value="{{$logo->image_name}}"/>
-					                	    </div>
+					                	    	<input type="text" value="{{$logo->image_name}}" name="image_name" id="image-name" 
+					                	    	class="form-control"/>
+					                	    </div><br>
 					            @error('image')
 					                <div class="alert alert-danger">{{ $message }}</div>
 					            @enderror 
 					                	<label class="col-lg-3 col-form-label form-control-label" for="photo">
-					                		<img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image"  style="width: 300px;"/>
-					                		<img src="" id="output" alt="">
+					                		<img id="preview" src="{{asset('user/images/' . $logo->image)}}" alt="click" />
 					                	</label>
 					                	     <div class="col-lg-9">
 					                	     	<input type="file" name="image"  multiple=""  class="form-control" id="photo" 
-					                	     	aria-describedby="inputGroupFileAddon01"  accept="image/*" style="display: none;" />
-					                	     </div>
-					                	     <div class="col-lg-9">
-					                	     	<input type="button"  class="btn btn-primary" value="Resize Image"  onclick="ResizeImage()"/> 
+					                	     	aria-describedby="inputGroupFileAddon01"  
+					                	     	accept="image/gif, image/jpeg, image/png, image.jpg" />
 					                	     </div>
 					                </div>
 					                <div class="form-group row">

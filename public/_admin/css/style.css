@@ -34,25 +34,10 @@
   color:#65C5B4;
 }
 
-.type-style{
-  padding-top: 30px;
-}
-
-.parents-input{
-  display: grid;
-  grid-template-columns:auto auto;
-  margin: : 50px;
-}
-
-.parents-input>input{
- margin: 10px;
-}
-
 #preview{
-  cursor: pointer;
+  width: 150px;
 }
 
-.error-message{
- font-size: 30px;
- color: red;
+#photo{
+  display: none;
 }
