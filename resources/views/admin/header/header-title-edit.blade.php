@@ -27,14 +27,16 @@
                                 @error('favicon')
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                     <label class="col-lg-3 col-form-label form-control-label" for="favicon">
+                                     <label class="col-lg-3 col-form-label form-control-label" for="photo">
                                        <img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg"
-                                       alt="your image"  style="width: 70px;"/>
+                                       alt="your image"  style="width: 300px;"/>
+                                       <img src="" id="output" alt="">
                                      </label>
                                       <input  type="file"  name="favicon" 
-                                       class="form-control" multiple="" id="favicon" style="display: none;"><br>
-                                <button type="submit" class="btn btn-success">Update Title
-                                </button> 
+                                       class="form-control" multiple="" id="photo" style="display: none;"><br>
+                                       <input type="button"  class="btn btn-primary" value="Resize Image"  onclick="ResizeImage()"/> <br>
+                                      <button type="submit" class="btn btn-success">Update Title
+                                      </button> 
                                 <a href="{{route('admin.header')}}" type="submit" class="btn btn-danger">Cancle</a>  
                             </div>
                         </form>  

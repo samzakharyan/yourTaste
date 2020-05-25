@@ -69,11 +69,15 @@ Header
 					                <div class="alert alert-danger">{{ $message }}</div>
 					            @enderror 
 					                	<label class="col-lg-3 col-form-label form-control-label" for="photo">
-					                		<img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image"  style="width: 70px;"/>
+					                		<img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image"  style="width: 300px;"/>
+					                		<img src="" id="output" alt="">
 					                	</label>
 					                	     <div class="col-lg-9">
-					                	     	<input type="file" name="image"  multiple="" class="form-control" id="photo" 
-					                	     	aria-describedby="inputGroupFileAddon01" style="display: none;" />
+					                	     	<input type="file" name="image"  multiple=""  class="form-control" id="photo" 
+					                	     	aria-describedby="inputGroupFileAddon01"  accept="image/*" style="display: none;" />
+					                	     </div>
+					                	     <div class="col-lg-9">
+					                	     	<input type="button"  class="btn btn-primary" value="Resize Image"  onclick="ResizeImage()"/> 
 					                	     </div>
 					                </div>
 					                <div class="form-group row">
