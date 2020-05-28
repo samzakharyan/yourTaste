@@ -66,15 +66,11 @@ class HeaderController extends Controller {
 			];
 		}
 
-    if ($request->show == 1) {       
+          
 		$update = Logo::where($request->id)->update($data);
 		Session::flash('statuscode','success');
 		return redirect('admin/header')->with('status','Header Logo successfully edited'); 
-	  }
-	  else{
-	  	Session::flash('statuscode','info');
-		return redirect('admin/header')->with('status','Header Logo unsuccessful edited');
-	  }
+	  
 	}
 
 

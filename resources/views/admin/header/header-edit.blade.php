@@ -16,17 +16,19 @@ Header
 					            <form role="form"  action="{{route('admin.header-update')}}" method="post" 
 					            enctype="multipart/form-data">
 					                        {{csrf_field()}}
-					                	    {{method_field('PUT')}}
+					                	    {{method_field('PUT')}}{{$logo->type}}
 					                     <div class="type-header">Change<span>. Logo</span></div>
 					                        <div class="div-parent">
 					                     	   <div class="div-text" style="{{$logo->type == 'text' ? 'background: #007BFF' : 'background: : #89898C'}}">
 					                     	    	<label for="text" class="label-type">Text</label>
-					                     	    	<input type="radio" id="text" name="type" value="text"/>
+					                     	    	<input type="radio" id="text" name="type" value="text" 
+					                     	    	 {{ $logo->type == 'text' ? 'checked' : '' }} />
 					                     	   </div>
 
 					                     	   <div class="div-image"  style="{{$logo->type == 'image' ? 'background: #007BFF' : 'background: : #89898C'}}">
 					                     	    	<label for="image" class="label-type">Image</label>
-					                     	    	<input type="radio" id="image" name="type" value="image"/>
+					                     	    	<input type="radio" id="image" name="type" value="image" 
+					                     	    	{{ $logo->type == 'image' ? 'checked' : ''}}/>
 					                     	   </div>					                  
 					                        </div>	     
 					            @error('type')
