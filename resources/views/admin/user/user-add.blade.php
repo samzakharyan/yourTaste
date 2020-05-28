@@ -9,9 +9,8 @@
     @section("name")
         Users Add
     @endsection
-
- <main>
-    <div class="container-fluid">
+    <main>
+      <div class="container-fluid">
         <div class="card mb-4" style="margin-top: 60px">
           <div class="card-header"><i class="fas fa-table mr-1"></i>Users Add</div>
             <div class="card-body">
@@ -19,14 +18,14 @@
                  <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="form-group col-md-6">
-                             Name:<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" 
-                             name="name" value="{{ old('name')}}" required autocomplete="name" autofocus>
+                             Name:<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name')}}" required autocomplete="name" autofocus>
                         @error('name')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
                         @enderror<br>
-                             Email: <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email')}}" required autocomplete="email">
+                             Email: <input id="email" type="email" class="form-control @error('email') is-invalid 
+                             @enderror" name="email" value="{{ old('email')}}" required autocomplete="email">
                         @error('email')
                               <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -51,8 +50,7 @@
             </div>
         </div>
       </div>
- </main>
-
+    </main>
 @endsection
 
 

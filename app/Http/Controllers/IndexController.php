@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Logo;
+use App\Logo;
 class IndexController extends Controller{
 
        public function index() {

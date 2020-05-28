@@ -41,10 +41,10 @@ $(document).ready(function(){
 						{
 							if (response.fail) {	
 								swal("Error!", response.msg, "success");
-								setTimeout(function(){  location.reload();},3000);
+								setTimeout(function(){  location.reload();},2000);
 							} else {
 								swal("Deleted!", response.msg, "success");
-								setTimeout(function(){  location.reload();},3000);
+								setTimeout(function(){  location.reload();},2000);
 							}
 						}
 					});	

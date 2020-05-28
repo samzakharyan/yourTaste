@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Logo;
+use App\Logo;
 class LogoSeeder extends Seeder
 {
     /**

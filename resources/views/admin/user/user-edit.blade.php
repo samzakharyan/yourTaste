@@ -23,12 +23,12 @@
                                        <div class="alert alert-danger">{{ $message }}</div>
                                  @enderror
                                        Name:<input  type="text"  name="name"  value="{{$users->name}}"  
-                                       class="form-control"/><br>
+                                       class="form-control @error('name') is-invalid @enderror"/><br>
                                  @error('email')
                                        <div   class="alert alert-danger">{{ $message }}</div>
                                  @enderror
                                        Email:<input   type="text"  name="email" value="{{$users->email}}" 
-                                       class="form-control"/><br>
+                                       class="form-control @error('email') is-invalid @enderror"/><br>
                                  <button type="submit" class="update-user btn btn-success">Update</button>  
                                  <a href="{{route('admin.users')}}" type="submit" class="btn btn-danger">Cancle</a> 
                              </div>
@@ -38,7 +38,6 @@
                 </div>
             </div>
           </main>
-
 @endsection
 
 

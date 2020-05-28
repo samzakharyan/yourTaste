@@ -12,7 +12,7 @@ class CreateLogoTable extends Migration
      * @return void
      */
     public function up()
-    {  
+    {
         Schema::create('logo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type')->default('text');
@@ -27,7 +27,6 @@ class CreateLogoTable extends Migration
             $table->string('favicon');
             $table->timestamps();
         });
-           
     }
 
     /**

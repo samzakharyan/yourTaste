@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Exception;
-use App\Models\Logo;
+use App\Logo;
 use Session;
 use DB;
 
@@ -22,7 +22,6 @@ class HeaderController extends Controller {
 
 	public function logoUpdate(Request $request) {
 	   $logo = Logo::where($request->id)->first();
-
 		if ($request->type == 'text') {
 			$validation = $request->validate([
 				'type' 	=> 'required',
@@ -34,9 +33,10 @@ class HeaderController extends Controller {
 				'type'			=> $request->type,
 				'show'			=> $request->show,
 				'name'			=> $request->name,
-				'image_name'	=> $request->image_name,
-				'image'			=> $request->image,
+				'image_name'	=> null,
+				'image'			=> null,
 			];
+		  
 		}
 
 		else {
@@ -60,14 +60,21 @@ class HeaderController extends Controller {
 			$data = [
 				'type'       => $request->type,
 				'show'       => $request->show,
-				'name'       => $request->name,
+				'name'       => null,
 				'image_name' => $request->image_name,
 				'image'      => $filename,
 			];
-		}       
+		}
+
+    if ($request->show == 1) {       
 		$update = Logo::where($request->id)->update($data);
 		Session::flash('statuscode','success');
-		return redirect('admin/header')->with('status','Logo successfully edited'); 
+		return redirect('admin/header')->with('status','Header Logo successfully edited'); 
+	  }
+	  else{
+	  	Session::flash('statuscode','info');
+		return redirect('admin/header')->with('status','Header Logo unsuccessful edited');
+	  }
 	}
 
 
@@ -90,7 +97,7 @@ class HeaderController extends Controller {
 		];
 		$update = Logo::where($request->id)->update($data);
 		Session::flash('statuscode','success');
-		return redirect('admin/header')->with('status','Phone successfully edited'); 
+		return redirect('admin/header')->with('status','Header Settings successfully edited'); 
 	}
 
 	public function titleedit(Request $request, $id) {
@@ -120,6 +127,6 @@ class HeaderController extends Controller {
 		];
 		$update = Logo::where($request->id)->update($data);
 		Session::flash('statuscode','success');
-		return redirect('admin/header')->with('status','Title successfully edited'); 
+		return redirect('admin/header')->with('status','Header Title successfully edited'); 
 	}
 }

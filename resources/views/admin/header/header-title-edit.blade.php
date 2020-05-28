@@ -23,7 +23,7 @@
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                       Column:<input type="text"  name="column"  
-                                      class="form-control" value="{{$logo->column}}"><br>
+                                      class="form-control  @error('column') is-invalid @enderror" value="{{$logo->column}}"><br>
                                 @error('favicon')
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

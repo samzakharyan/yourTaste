@@ -12,7 +12,7 @@ Header
        <main>
          <div class="container-fluid">
            @if (count($logo) == 0)
-               <p class="error-message">Please in terminal ran db:seed command</p>
+               <p class="error-message">Please in terminal ran php artisan db:seed command</p>
            @else   
              <div class="card mb-4">
                <div class="card-header"><i class="fas fa-table mr-1"></i>Header Logo</div> 

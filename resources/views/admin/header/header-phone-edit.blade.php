@@ -23,17 +23,20 @@
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                       Call Name:<input type="text"  name="call_name"  
-                                      value="{{$logo->call_name}}"  class="form-control"><br>
+                                       class="form-control @error('call_name') is-invalid @enderror"
+                                       value="{{$logo->call_name}}"><br>
                                 @error('phone')
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                       Phone:<input  type="number"  name="phone" 
-                                      value="{{$logo->phone}}"  class="form-control"><br>
+                                      class="form-control @error('phone') is-invalid @enderror"                    
+                                      value="{{$logo->phone}}"><br>
                                 @error('reserv_name')
                                       <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                       Reserv Name:<input type="text"  name="reserv_name" 
-                                      value="{{$logo->reserv_name}}"  class="form-control"><br>
+                                      class="form-control @error('reserv_name') is-invalid @enderror" 
+                                      value="{{$logo->reserv_name}}"><br>
                                 <button type="submit" class="btn btn-success">Update Phone
                                 </button> 
                                 <a href="{{route('admin.header')}}" type="submit" class="btn btn-danger">Cancle</a>  
